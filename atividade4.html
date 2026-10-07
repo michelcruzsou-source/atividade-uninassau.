@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alteração de Tema</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            min-height: 100vh;
+            transition: 0.3s;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: #222;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* TEMA ESCURO */
+        body.escuro {
+            background-color: #222;
+            color: white;
+        }
+
+        body.escuro button {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Minha Página</h1>
+
+        <p id="texto">
+            Este é o tema claro da página.
+        </p>
+
+        <button id="botaoTema">
+            Ativar tema escuro
+        </button>
+
+    </div>
+
+
+    <script>
+
+        // Selecionando o botão
+        const botao = document.getElementById("botaoTema");
+
+        // Selecionando o texto
+        const texto = document.getElementById("texto");
+
+
+        // Quando o botão for clicado
+        botao.addEventListener("click", function() {
+
+            // Adiciona ou remove o tema escuro
+            document.body.classList.toggle("escuro");
+
+
+            // Verifica qual tema está ativo
+            if (document.body.classList.contains("escuro")) {
+
+                // Tema escuro
+                texto.textContent = "Este é o tema escuro da página.";
+
+                botao.textContent = "Ativar tema claro";
+
+            } else {
+
+                // Tema claro
+                texto.textContent = "Este é o tema claro da página.";
+
+                botao.textContent = "Ativar tema escuro";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
